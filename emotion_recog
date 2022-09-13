@@ -45,5 +45,11 @@ A person's emotions can be inferred from his or her facial expressions, which ca
 
 
 
-#####New change
+Problem Formulation
+
+Despite the availability of numerous methods and cutting-edge machine learning models, we will focus on the ensemble model. We will apply a variety of deep learning approaches, data pre-processing, ensemble learning, and transfer learning while modifying some of the most recent state-of-the-art architectures, i.e. VGG-16, ResNet50, and InceptionV3.
+
+Data pre-processing, which is the most crucial component of this solution, is clearly the first step. We apply several transformations to the datasets in order to precisely extract features. The second step is where we develop our three models utilising transfer learning for categorising images into seven different emotions. The models are fine-tuned and finally combined to form an ensemble
+
+Experimental results demonstrate that the suggested method predicts emotions with such a high level of precision that it can catch the tiniest characteristics from a person's face. Our model is capable of accurately detecting emotions in the provided input images.
 
