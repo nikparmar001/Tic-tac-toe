@@ -1,0 +1,49 @@
+ABSTRACT
+
+
+Humans frequently communicate effectively using their faces in addition to their words. The use of computer vision techniques to categorise face expressions has been extensively studied. Given the difficulties and restrictions of databases, such as the use of static data or facial capture in artificial contexts, these have had different degrees of success. As a result, we think that novel preprocessing methods are necessary to increase the precision of facial detection models. In this study, we suggest a novel, yet straightforward, approach to improving the precision of face emotion identification.
+
+To distinguish between the main seven human emotions—anger, disgust, fear, pleasure, sorrow, surprise, and neutrality—we used a variety of deep learning techniques (convolutional neural networks). The FER-2013 and CK+ datasets from Kaggle were used. To highlight the texture and details of the photographs, we used Unsharp Mask and data augmentation techniques.
+
+Our convolutional neural network designs included VGG-16, ResNet50, and InceptionV3. The accuracy we achieved was 76.01% by leveraging ensemble and transfer learning techniques.
+
+
+
+Introduction
+
+Understanding human emotions is an important area of research because it can lead to a wide range of opportunities and applications, from more cordial human-computer interactions to more precisely targeted advertising campaigns and, ultimately, to better human communication by raising each of our emotional quotients ("EQ"). The recognition of human emotions can be studied in a variety of ways, including through facial expressions, body posture, voice speed, and tone. However, in this paper, we will only discuss one aspect of this field: the visual recognition of facial expressions.
+
+The fact that some facial expressions have global meaning and these feelings have been recorded for tens or even hundreds of years is one of the reasons we decided to concentrate on this topic. As a result, in the majority of databases today that contain information on facial emotions, the key classification of human emotions is still used, which was first introduced in a study by Ekman et al. in 1971 titled "Constants across cultures in the face and emotion." The six primary emotions listed in that study were anger, disgust, fear, happiness, sorrow, and surprise. With the addition of a seventh, neutral emotion, these are the same emotions that are currently being utilised by researchers to recognise facial expressions in computer vision or contests like Kaggle's Facial Expression Recognition Challenge.
+
+To detect these seven primary human emotions, our research uses deep learning (a VGG-16 convolutional network, a ResNet50 convolutional network, and an InceptionV3 convolutional network). Because of its wide range of applications in numerous industries, such as systematic recruiting, and its capacity to be combined with a number of technologies, this topic is incredibly important to us (i.e. smart glasses, VR, wearables, etc.). Facial expressions and emotions can add a new level of user information (i.e. imagine Facebook or Google analysing your emotions and reactions to learn more about the user and serve better recommendations and ads).
+
+
+We will use an ensemble model formed by combining the predictions of the previous 3 models to achieve our goals. In particular, we will use some of the current state-of-the-art architectures - VGG-16, ResNet50 and InceptionV3 while making some adjustments, including applications of various deep learning techniques and ensemble and transfer learning. We chose to go with VGG-16, ResNet50 and InceptionV3 because they previously won the ImageNet challenge, achieved near state-of-the-art results in terms of prediction accuracy, and followed a relatively standard CNN architecture. The two datasets we will leverage in our research are Kaggle’s Facial Expression Recognition Challenge(FER-2013) and CK+ datasets. We found these datasets to be representative because of their size, unstructured nature of faces (in terms of facial orientation, ethnicity, age, and gender of the subjects) and relatively uniform distribution of the data across the seven main human emotions (disgust being the only underrepresented one within the Kaggle
+dataset, at ~1.5%).
+
+To evaluate the performance of our models, we will primarily be looking at the accuracy of the training, validation, and test sets. To facilitate the training and tuning processes, we will be leveraging other standard statistics such as precision and recall to provide further insights on the efficacy of the models.
+We employed various data augmentation techniques and utilised an Unsharp mask to emphasise the texture and details of the images.
+
+
+
+Prior Work
+
+Different techniques have been developed in earlier studies with improvements in facial emotion recognition ability. Conventional classification has proven to be reliable when picture pretreatment techniques are used before it. Edge detection methods were utilised by Rani et al. to prefilter the raw pictures for FER. For multi-view face detection, coloured edge detectors canny edge detectors, and gaussian edge detectors have all been employed in other research. Standard histogram equalisation was employed in a study by Yu et al.for the preparation of facial picture data. obtained a sparse representation of faces for person-specific verification in unrestricted contexts. There are only a few datasets for FER, and they only contain a few photos. Such short datasets may cause overfitting when training CNNs. Researchers have begun using transfer learning for facial recognition tasks as a solution to this issue. Moreover, using supplementary data can enhance the system's overall performance. This frequently aids in model expansion without over-fitting. As contrast to training networks from scratch on tiny FER datasets, applying transfer learning to the FER models produced better results.
+
+Even though CNNs function effectively on their own, preparing images and using them as input rather than providing the CNN with raw images has been demonstrated to significantly improve accuracy. Early CNN architecture implementations were less resistant to twisted and deviated facial images because they did not use image data augmentation and preprocessing approaches. A linear Support Vector Machine (SVM) was used to implement CNN by Tang and Wang et al. used the same method, but instead of stacking the "softmax" activation function results, they used SVM. In order to improve performance, they also used data augmentation with histogram equalisation. Applying various preprocessing methods and feature extract parameters can improve the performance of an ensemble of classifiers. Nanni et al. demonstrated how constructing an ensemble of classifiers based on various feature extraction parameters and preprocessing methods can further improve performance. Fine-tuned network databases, including FER+ and RAF-DB datasets, (RaFD), CK+, JAFFE and FACES, and FER2013, have utilised existing datasets for facial recognition. In the FER-2013 dataset, the CNN models' accuracy in detecting facial emotion was 65%. The Kaggle competition's greatest accuracy, 71.2%, was attained using CNN and SVM as the training loss function. Pre-trained models have been employed by numerous researchers to increase the accuracy of the FER2013 dataset. Pramerdorfer et al. used an ensemble of 6 models to reach an accuracy of 75.2% without the need for auxiliary data or face registration. Using supplementary data, HoG characteristics, and facial landmark registration, Zhang et al. attained an accuracy of 75.1%. Using supplementary data and a group of seven CNNs, Khanzada and associates attained an accuracy of 75.8%. They trained two CNNs from scratch and used transfer learning to five previously trained networks in their study. To our knowledge, this is the highest documented accuracy. In our approach, we trained pre-trained models based on the findings of Khanzada et al.
+
+By combining an image preprocessing strategy with data augmentation to improve each image's attributes and feed them to the model, we hope to achieve the best results from both approaches. We discovered that the Image Sharpening technique boosts the facial photographs' significant features. In our approach, we will build an ensemble model using VGG-16, ResNet50 and InceptionV3 which will feed on the pre-processed dataset.We went with VGG-16 and ResNet50 because they have already won the ImageNet competition, have produced results that are nearly state-of-the-art in terms of prediction accuracy, and adhere to a generally common CNN design.
+
+
+
+
+Motivation
+
+Communication relies heavily on facial expressions, whether it is verbal or non-verbal. Facial expressions can convey a wide range of emotions. These days, it is crucial to be able to recognise emotions from facial expressions. Different definitions are reflected in various types of emotions. Facial emotion detection plays a significant role in driver warning systems and can be useful in predicting aberrant activities like hostility, attacks, robberies, and more in public locations like malls and airports. Facial emotion recognition is another method that can be used to predict a person's propensity for suicide. Understanding individuals and improving communication with them can both be facilitated by understanding facial expressions.
+A person's emotions can be inferred from his or her facial expressions, which can be used to create cutting-edge recommender systems for shopping, listening to music or watching sports, and other activities. Additionally, it can be used to monitor patients in a hospital or track down kids in a classroom.
+
+
+
+
+
+
